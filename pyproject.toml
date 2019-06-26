@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pyrofi"
+version = "0.1.0"
+description = "Rofi Menu wrapper for hierarchical menu creation."
+authors = ["Aleksei Pirogov <astynax@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+  "Topic :: Software Development :: User Interfaces",
+  "Operating System :: Unix",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 4 - Beta"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+jedi = "^0.14.0"
+wemake-python-styleguide = "^0.9.0"
+isort = "^4.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

@@ -1,5 +1,12 @@
 ### About
 
+![PyPI - License](https://img.shields.io/pypi/l/pyrofi.svg)
+![PyPI - Implementation](https://img.shields.io/pypi/implementation/pyrofi.svg)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyrofi.svg)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/astynax/pyrofi.svg)
+[![PyPI](https://img.shields.io/pypi/v/pyrofi.svg)](https://pypi.org/project/pyrofi/)
+[![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
+
 PyRofi wraps [Rofi](https://github.com/davatorium/rofi) and helps you to build the hierarchical menus with neat navigation.
 
 ### Installation

@@ -7,7 +7,7 @@
 [![PyPI](https://img.shields.io/pypi/v/pyrofi.svg)](https://pypi.org/project/pyrofi/)
 [![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
 
-PyRofi wraps [Rofi](https://github.com/davatorium/rofi) and helps you to build the hierarchical menus with neat navigation. You can also use te [Wofi](https://hg.sr.ht/~scoopta/wofi) as the "backend".
+PyRofi wraps [Rofi](https://github.com/davatorium/rofi) and helps you to build the hierarchical menus with neat navigation. You can also use the [Wofi](https://hg.sr.ht/~scoopta/wofi) as the "backend".
 
 ### Installation
 

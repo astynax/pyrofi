@@ -6,16 +6,28 @@ from os import execlp
 from subprocess import PIPE, Popen  # noqa: S404
 from typing import Any, Callable, List
 
-__all__ = ('QUICK', 'run_menu', 'execute')
+__version__ = '0.3.0'
+
+__all__ = (
+    'QUICK',
+    'ROFI_CMD',
+    'WOFI_CMD',
+    'run_menu',
+    'execute',
+)
 
 
-# Reasonable set of flags: auto-selecting, no history & case sensitivity.
+# Reasonable set of flags for Rofi:
+# auto-selecting, no history & case sensitivity.
 QUICK = (
     '-i',
     '-auto-select',
     '-disable-history',
     '-no-custom',
 )
+
+ROFI_CMD = 'rofi'
+WOFI_CMD = 'wofi'
 
 
 def execute(args: List[str]) -> bool:
@@ -24,13 +36,14 @@ def execute(args: List[str]) -> bool:
     return True
 
 
-def make_rofi_cmd(
+def build_menu_cmd(
+    menu_cmd: str,
     *args: str,
     prefix='',
     **kwargs: str,
 ):
     cmd_line = (
-        'rofi',
+        menu_cmd,
     ) + tuple(args) + tuple(
         i
         for k, v in kwargs.items()
@@ -58,11 +71,12 @@ def run_menu(  # noqa: Z210, Z212
     menu: dict,
     *args: str,
     prefix='',
+    menu_cmd=ROFI_CMD,
     callback: Callable[[Any], bool] = execute,
     **kwargs: str,
 ):
     """Run the @menu with optional @config."""
-    make_cmd = make_rofi_cmd(*args, prefix=prefix, **kwargs)
+    make_cmd = build_menu_cmd(menu_cmd, *args, prefix=prefix, **kwargs)
 
     def walk(menu, path):  # noqa: Z430
         while True:

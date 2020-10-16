@@ -7,11 +7,11 @@
 [![PyPI](https://img.shields.io/pypi/v/pyrofi.svg)](https://pypi.org/project/pyrofi/)
 [![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
 
-PyRofi wraps [Rofi](https://github.com/davatorium/rofi) and helps you to build the hierarchical menus with neat navigation.
+PyRofi wraps [Rofi](https://github.com/davatorium/rofi) and helps you to build the hierarchical menus with neat navigation. You can also use te [Wofi](https://hg.sr.ht/~scoopta/wofi) as the "backend".
 
 ### Installation
 
-Just `python3 -m pip install --update --user pyrofi` (requires Python `^3.6`).
+Make sure that you have the Rofi or the Wofi installed. Then just `python3 -m pip install --update --user pyrofi` (requires Python `^3.6`).
 
 ### Example
 
@@ -38,5 +38,7 @@ run_menu({
     'Dice': dice,
 })
 ```
+
+If you want to use Wofi, you will need to add `menu_cmd=pyrofi.WOFI_CMD` (or just `menu_cmd='wofi`) to the `run_menu` call.
 
 More complex example you can see [here](https://github.com/astynax/pyrofi/blob/master/pyrofi/__main__.py) and run it with `python3 -m pyrofi`.

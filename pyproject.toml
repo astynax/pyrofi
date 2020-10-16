@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyrofi"
-version = "0.2.0"
+version = "0.3.0"
 description = "Rofi Menu wrapper for hierarchical menu creation."
 authors = ["Aleksei Pirogov <astynax@users.noreply.github.com>"]
 license = "MIT"

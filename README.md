@@ -31,10 +31,29 @@ Submenus are just dictionaries with the same structure.
 
 Action can be:
 
-- a list with command plus arguments: `['firefox', 'https://google.com']`
+- the "command" — a list with command plus arguments
+    ```python
+    'google': ['firefox', 'https://google.com']`
+    ```
 - some `Callable[List[str], ]` that receives a path to the item and returns
     - `None` if all the work is done and you need to stop the interaction
+    - a command (see above)
+        ```python
+        def show_path(path):
+            return ['echo'] + path
+
+        ...
+        'where am I': show_path
+        ```
     - a submenu to "dive" into (you can build the submenus dynamically)
+        ```python
+        def games_menu(path):
+            return {
+                ...
+            }
+
+        'games': games_menu
+        ```
 
 Also, the `run_menu` function can receive a `callback: Callable[List[Any], bool]` argument: that's how you can override the command execution. Any callback function should take a path as a sole argument and return either `True` if no more interactions are needed or `False` if you want to keep the menu active.
 

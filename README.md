@@ -85,4 +85,17 @@ run_menu({
 
 If you want to use Wofi, you will need to add `menu_cmd=pyrofi.WOFI_CMD` (or just `menu_cmd='wofi`) to the `run_menu` call.
 
+Here's an example with added icons. See [details](https://davatorium.github.io/rofi/current/rofi-script.5/#parsing-row-options) for more information
+
+```python
+
+run_menu({
+    row('Games', icon='folder'): {
+        'Rogue': ['rogue'],
+        'Angband': ['angband']
+    },
+  },
+  '-show-icons')
+```
+
 More complex example you can see [here](https://github.com/astynax/pyrofi/blob/master/pyrofi/__main__.py) and run it with `python3 -m pyrofi`.

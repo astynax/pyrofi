@@ -12,6 +12,7 @@ __all__ = (
     'QUICK',
     'ROFI_CMD',
     'WOFI_CMD',
+    'row',
     'run_menu',
     'execute',
 )
@@ -29,11 +30,18 @@ QUICK = (
 ROFI_CMD = 'rofi'
 WOFI_CMD = 'wofi'
 
+NULL_DELIMER = '\0'
 
 def execute(args: List[str]) -> bool:
     """Just execute @args as external command."""
     execlp(args[0], ' ', *args[1:])  # noqa: S606
     return True
+
+def row(title, **kwargs):
+    """Return menu row with extra options."""
+    if not kwargs:
+        return title
+    return title + NULL_DELIMER + '\x1f'.join([f'{key}\x1f{value}' for key, value in kwargs.items()])
 
 
 def build_menu_cmd(
@@ -97,7 +105,12 @@ def run_menu(  # noqa: Z210, Z212
             try:
                 menu_item = menu[key]
             except KeyError:
-                return False
+                # trim extra properties and try again
+                for menu_key in menu.keys():
+                    if menu_key.split(NULL_DELIMER)[0] == key:
+                        menu_item = menu[menu_key]
+                if not menu_item:
+                    return False
             while True:
                 if isinstance(menu_item, dict):
                     # item is a sub-menu, walk through it
